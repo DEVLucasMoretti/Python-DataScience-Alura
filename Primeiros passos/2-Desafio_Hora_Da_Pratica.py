@@ -109,7 +109,7 @@ print(frase.replace('e','f'))
 
 #9 Crie um código que solicite uma frase à pessoa usuária e imprima a mesma frase com todas as vogais “a” trocadas pela caractere “@”
 frase = input('Escreva uma frase: ')
-print(frase.replace('a','f@'))
+print(frase.replace('a','@'))
 
 #10 Crie um código que solicite uma frase à pessoa usuária e imprima a mesma frase com todas as consoantes “s” trocadas pelo caractere “$”.
 frase = input('Escreva uma frase: ')
