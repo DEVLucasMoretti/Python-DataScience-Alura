@@ -1,4 +1,7 @@
-#Vamos praticar o uso de vários tipos de variáveis e da função input a partir de algumas atividades. Solucione os problemas propostos em código.
+# Vamos praticar o uso de vários tipos de variáveis e da função input a partir de algumas atividades. Solucione os problemas propostos em código.
+
+
+####################  Calculadora com operadores  ####################
 
 #1 Crie um programa que solicite à pessoa usuária digitar seu nome, e imprima “Olá, [nome]!”.
 name = input("Digite o seu nome: ")
@@ -68,3 +71,46 @@ for i in range(4):
     sum= sum + numbers[i]*(i+1)
     
 print(f'A média ponderada é {sum/weight}')
+
+
+####################  Editando textos  ####################
+
+#1 Crie uma variável chamada “frase” e atribua a ela uma string de sua escolha. Em seguida, imprima a frase na tela.
+frase = 'Python'
+print(frase)
+
+#2 Crie um código que solicite uma frase e depois imprima a frase na tela.
+frase = input('Escreva uma frase: ')
+print(frase)
+
+#3 Crie um código que solicite uma frase à pessoa usuária e imprima a mesma frase digitada mas com todas as letras maiúsculas.
+frase = input('Escreva uma frase:')
+print(frase.upper())
+
+#4 Crie um código que solicite uma frase à pessoa usuária e imprima a mesma frase digitada mas com todas as letras minúsculas.
+frase = input('Escreva uma frase:')
+print(frase.lower())
+
+#5 Crie uma variável chamada “frase” e atribua a ela uma string de sua escolha. Em seguida, imprima a frase sem espaços em branco no início e no fim.
+frase = " Frase vai ficar sem espaços no Início e Final          "
+print(frase.strip())
+
+#6 Crie um código que solicite uma frase à pessoa usuária e imprima a mesma frase sem espaços em branco no início e no fim.
+frase = input('Escreva uma frase: ')
+print(frase.strip())
+
+#7 Crie um código que solicite uma frase à pessoa usuária e imprima a mesma frase sem espaços em branco no início e no fim e em letras minúsculas.
+frase = input('Escreva uma frase: ')
+print(frase.strip().lower())
+
+#8 Crie um código que solicite uma frase à pessoa usuária e imprima a mesma frase com todas as vogais “e” trocadas pela letra “f”.
+frase = input('Escreva uma frase: ')
+print(frase.replace('e','f'))
+
+#9 Crie um código que solicite uma frase à pessoa usuária e imprima a mesma frase com todas as vogais “a” trocadas pela caractere “@”
+frase = input('Escreva uma frase: ')
+print(frase.replace('a','f@'))
+
+#10 Crie um código que solicite uma frase à pessoa usuária e imprima a mesma frase com todas as consoantes “s” trocadas pelo caractere “$”.
+frase = input('Escreva uma frase: ')
+print(frase.replace('s','$'))

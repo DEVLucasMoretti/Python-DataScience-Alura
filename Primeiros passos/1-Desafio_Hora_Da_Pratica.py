@@ -1,4 +1,4 @@
-#Vamos praticar o uso da função (print) com algumas atividades.
+# Vamos praticar o uso da função (print) com algumas atividades.
 
 #1 mprima a frase Escola de Dados da Alura!.
 print("Escola de Dados da Alura!\n")
