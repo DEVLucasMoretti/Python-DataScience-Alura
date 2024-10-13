@@ -103,5 +103,69 @@ numeros_lista = separa_algarismos(n)
 verificar_impar_ou_par(numeros_lista)
 #Fiz sem colocar as variáveis em inglês para um melhor entendimento do código ^-^
 
+#9 Escreva um programa que peça um número à pessoa usuária e informe se ele é inteiro ou decimal.
+n = float(input("Digite um valor: "))
 
+print("O valor é um número inteiro!") if n == int(n) else print("O valor é um número decimal!")
 
+#Momento dos projetos
+#10 Um programa deve ser escrito para ler dois números e, em seguida, perguntar à pessoa usuária qual operação ele deseja realizar. O resultado da operação deve incluir informações sobre o número - se é par ou ímpar, positivo ou negativo e inteiro ou decimal.
+def operecao_a_ser_realizada(n1,n2,op):
+    if(op =='+'):
+        return num1 + num2
+    elif(op =='-'):
+            return  num1 - num2
+    elif(op =='/'):
+        return  num1 / num2
+    elif(op =='*'):
+        return  num1 * num2
+    else:
+        print("Opereção Inválida")
+
+def impar_ou_par(num):
+    num = int(num)
+    list_num = list(map(float,str(num))) #Separa os cada algarismos em uma posição da lista
+    size = len(list_num)  #Pegamos o tamanho da lista para poder verificar qual o último algrismo da lista o tamanho -1, porque o index começa no ZERO.
+    for i in range(0,10,2):
+        if (list_num[size-1] == i): #Verificamos se o último algarismo é par
+            return "par"
+    for i in range(1,10,2):
+        if (list_num[size-1]== i): #Verificamos se o último algarismo é ímpar
+            return "ímpar"
+
+def inteiro_ou_decimal(num):
+    if num == int(num):
+        return "inteiro"
+    else:
+        return "decimal"
+
+def positivo_ou_negativo(num):
+    if num > 0:
+     return "positivo"
+    else: 
+        return"negativo"
+
+num1 = float(input("Digite um valor: "))
+num2 = float(input("Digite outro valor inteiro: "))
+print("(+) Para soma\n(-) Para subtração\n(/) Para divisão\n(*) Para multiplicação")
+op = input("Digite qual operação deseja fazer: ")
+
+result = (operecao_a_ser_realizada(num1,num2,op))
+print(f'O resultado da operação é {result}.\nO número é {impar_ou_par(result)}(A parte inteira),{positivo_ou_negativo(result)}e {inteiro_ou_decimal(result)}.')
+
+#Escreva um programa que peça à pessoa usuária três números que representam os lados de um triângulo. O programa deve informar se os valores podem ser utilizados para formar um triângulo e, caso afirmativo, se ele é equilátero, isósceles ou escaleno. Tenha em mente algumas dicas:
+#Três lados formam um triângulo quando a soma de quaisquer dois lados for maior que o terceiro;
+#Triângulo Equilátero: três lados iguais;
+#Triângulo Isósceles: quaisquer dois lados iguais;
+#Triângulo Escaleno: três lados diferentes.
+
+a = int(input("Digite o 1º valor inteiro do lado do triângulo"))
+b = int(input("Digite o 2º valor inteiro do lado do triângulo"))
+c = int(input("Digite o 3º valor inteiro do lado do triângulo"))
+
+if(a+b>c or a+c>b or b+c>a):
+    triang= True
+else:
+    triang=False
+
+print(triang)
