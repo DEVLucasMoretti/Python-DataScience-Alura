@@ -78,12 +78,7 @@ for i in range(len(vot_all)):
     elif(vot_all[i] == 6):
         f = f + 1
 
-vot.append(a)
-vot.append(b)
-vot.append(c)
-vot.append(d)
-vot.append(e)
-vot.append(f)
+vot.extend([a,b,c,d,e,f])
 
 print(f' Candidato 1 teve {vot[0]} votos.')
 print(f' Candidato 2 teve {vot[1]} votos.')

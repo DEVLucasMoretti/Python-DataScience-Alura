@@ -108,7 +108,14 @@ n = float(input("Digite um valor: "))
 
 print("O valor é um número inteiro!") if n == int(n) else print("O valor é um número decimal!")
 
-#Momento dos projetos
+
+
+
+
+########################################  Momento dos projetos  ########################################
+
+
+
 #10 Um programa deve ser escrito para ler dois números e, em seguida, perguntar à pessoa usuária qual operação ele deseja realizar. O resultado da operação deve incluir informações sobre o número - se é par ou ímpar, positivo ou negativo e inteiro ou decimal.
 def operecao_a_ser_realizada(n1,n2,op):
     if(op =='+'):
@@ -123,15 +130,28 @@ def operecao_a_ser_realizada(n1,n2,op):
         print("Opereção Inválida")
 
 def impar_ou_par(num):
-    num = int(num)
-    list_num = list(map(float,str(num))) #Separa os cada algarismos em uma posição da lista
-    size = len(list_num)  #Pegamos o tamanho da lista para poder verificar qual o último algrismo da lista o tamanho -1, porque o index começa no ZERO.
-    for i in range(0,10,2):
-        if (list_num[size-1] == i): #Verificamos se o último algarismo é par
-            return "par"
-    for i in range(1,10,2):
-        if (list_num[size-1]== i): #Verificamos se o último algarismo é ímpar
-            return "ímpar"
+    num_str = str(num)
+    verify_num= num_str.split('.')
+    list_num = []
+    list_num.append(int(verify_num[0]))
+    list_num.append(int(verify_num[1]))
+    if(list_num[1] == 0):
+        list_num_int = list(map(int,str(list_num[0])))
+        for i in range(0,10,2):
+            if (list_num_int[-1] == i): #Verificamos se o último algarismo é par
+                return "par"
+        for i in range(1,10,2):
+            if (list_num_int[-1]== i): #Verificamos se o último algarismo é ímpar
+                return "ímpar"
+    else:
+        list_num_float = list(map(int,str(list_num[1])))
+        print(list_num_float)
+        for i in range(0,10,2):
+            if (list_num_float[-1] == i): #Verificamos se o último algarismo é par
+                return "par"
+        for i in range(1,10,2):
+            if (list_num_float[-1]== i): #Verificamos se o último algarismo é ímpar
+                return "ímpar"
 
 def inteiro_ou_decimal(num):
     if num == int(num):
@@ -146,26 +166,77 @@ def positivo_ou_negativo(num):
         return"negativo"
 
 num1 = float(input("Digite um valor: "))
-num2 = float(input("Digite outro valor inteiro: "))
+num2 = float(input("Digite outro valor: "))
 print("(+) Para soma\n(-) Para subtração\n(/) Para divisão\n(*) Para multiplicação")
 op = input("Digite qual operação deseja fazer: ")
 
 result = (operecao_a_ser_realizada(num1,num2,op))
-print(f'O resultado da operação é {result}.\nO número é {impar_ou_par(result)}(A parte inteira),{positivo_ou_negativo(result)}e {inteiro_ou_decimal(result)}.')
+print(f'O resultado da operação é {result}.\nO número é {impar_ou_par(result)},{positivo_ou_negativo(result)} e {inteiro_ou_decimal(result)}.')
 
-#Escreva um programa que peça à pessoa usuária três números que representam os lados de um triângulo. O programa deve informar se os valores podem ser utilizados para formar um triângulo e, caso afirmativo, se ele é equilátero, isósceles ou escaleno. Tenha em mente algumas dicas:
+
+
+
+
+#11 Escreva um programa que peça à pessoa usuária três números que representam os lados de um triângulo. O programa deve informar se os valores podem ser utilizados para formar um triângulo e, caso afirmativo, se ele é equilátero, isósceles ou escaleno. Tenha em mente algumas dicas:
 #Três lados formam um triângulo quando a soma de quaisquer dois lados for maior que o terceiro;
 #Triângulo Equilátero: três lados iguais;
 #Triângulo Isósceles: quaisquer dois lados iguais;
 #Triângulo Escaleno: três lados diferentes.
 
-a = int(input("Digite o 1º valor inteiro do lado do triângulo"))
-b = int(input("Digite o 2º valor inteiro do lado do triângulo"))
-c = int(input("Digite o 3º valor inteiro do lado do triângulo"))
+def forma_triangulo(a,b,c): # Verifica se é possível formar um triângulo
+    if(a+b>c and a+c>b and b+c>a):
+        return True
+    else:
+       return False
+def forma_equilatero(a,b,c): # Verifica se triângulo é Equilatero
+    if(a==b and a==c and b==c):
+        return True
+def forma_isosceles(a,b,c): # Verifica se triângulo é Isósceles
+    if(a==b)or(a==c) or(b==c):
+        return True
+def forma_escaleno(a,b,c): # Verifica se triângulo é Escaleno
+    if(a!=b and a!=c and b!=c):
+        return True
 
-if(a+b>c or a+c>b or b+c>a):
-    triang= True
+a = int(input("Digite o 1º valor inteiro do lado do triângulo: "))
+b = int(input("Digite o 2º valor inteiro do lado do triângulo: "))
+c = int(input("Digite o 3º valor inteiro do lado do triângulo: "))
+
+if(forma_triangulo(a,b,c) == True): # Se for possível forma um triângulo, ele verifica o tipo dele.
+    if forma_equilatero(a,b,c) == True:
+        print("O triângulo é Equilátero")
+    elif forma_escaleno(a,b,c) == True:
+        print("O triângulo é Escaleno")
+    elif forma_isosceles(a,b,c) == True:
+        print("O triângulo é Isósceles")
 else:
-    triang=False
+    print("Os valores informados não formam nenhum triângulo")
 
-print(triang)
+
+
+
+
+#12 Um estabelecimento está vendendo combustíveis com descontos variados. Para o etanol, se a quantidade comprada for até 15 litros, o desconto será de 2% por litro. Caso contrário, será de 4% por litro. Para o diesel, se a quantidade comprada for até 15 litros, o desconto será de 3% por litro. Caso contrário, será de 5% por litro. O preço do litro de diesel é R$ 2,00 e o preço do litro de etanol é R$ 1,70. Escreva um programa que leia a quantidade de litros vendidos e o tipo de combustível (E para etanol e D para diesel) e calcule o valor a ser pago pelo cliente. Tenha em mente algumas dicas:
+#O do valor do desconto será a multiplicação entre preço do litro, quantidade de litros e o valor do desconto.
+#O valor a ser pago por um cliente será o resultado da multiplicação do preço do litro pela quantidade de litros menos o valor de desconto resultante do cálculo.
+def discount_etanol(liters):
+    if(liters <= 15):
+        return 1.7 * liters * 0.98
+    else:
+        return 1.7 * liters * 0.96    
+def discount_diesel(liters):
+    if(liters <= 15):
+        return 2 * liters * 0.97
+    else:
+        return 2 * liters * 0.95
+
+l = float(input("Quantos litros foram vendidos: "))
+comb = input("Qual o tipo de combustível (E - etanol e D - diesel): ").upper()
+
+if( comb == "E"):
+    print(f"O valor a ser pago em {l} litros de etanol é R${l*discount_etanol(l):,.2f}")
+elif( comb == "D"):
+    print(f"O valor a ser pago em {l} litros de disel é R${l*discount_diesel(l):,.2f}")
+else:
+    "Valor de combustível inválido! "
+
